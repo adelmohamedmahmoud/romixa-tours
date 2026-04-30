@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags -->
+<meta name="description" content="روميكسا تورز - وكالة سياحية رائدة تقدم باقات سفر فاخرة للحج والعمرة ورحلات سياحية داخل مصر وخارجها. اكتشف عروضنا واحجز الآن.">
+<meta name="keywords" content="روميكسا, روميكسا تورز, سياحة, حجز فنادق, رحلات سياحية, الحج, العمرة, شهر عسل, باقات سفر, مصر, تركيا, دبي, سويسرا">
+<meta name="author" content="روميكسا تورز">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.romixa.com/">
+
+<!-- Open Graph (لتحسين المشاركة على فيسبوك وواتساب) -->
+<meta property="og:title" content="روميكسا تورز - اكتشف العالم معنا">
+<meta property="og:description" content="وكالة سياحية متخصصة تقدم أفضل العروض السياحية والحج والعمرة.">
+<meta property="og:image" content="https://www.romixa.com/img/og-image.jpg">
+<meta property="og:url" content="https://www.romixa.com/">
+<meta property="og:type" content="website">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="روميكسا تورز">
+<meta name="twitter:description" content="أفضل باقات السفر والحج والعمرة.">
+<meta name="twitter:image" content="https://www.romixa.com/img/og-image.jpg">
+<meta name="google-site-verification" content="الكود_الخاص_بك">
+    <title>ROMIXA  روميكسا تورز </title>
+    <!-- <link rel="icon" href="img/ChatGPT_Image_removebg-preview.png" type="image/png"> -->
+     <link rel="icon" type="image/png" sizes="64x64" href="img/new-logo-tab.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="img/new-logo-tab.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/new-logo-tab.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Tajawal:wght@300;400;500;700;800;900&family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+    <div class="loader-wrapper" id="loader">
+        <div class="loader-logo">
+                    <img src="img/ChatGPT_Image_removebg-preview.png"  alt="ROMIXA" style="height: 100px; vertical-align: middle;">
+
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" onclick="closeLightbox()"><i class="fas fa-times"></i></button>
+        <button class="lightbox-nav lb-prev" onclick="navigateLightbox(1)"><i class="fas fa-chevron-right"></i></button>
+        <img class="lightbox-img" id="lightboxImg" src="" alt="">
+        <button class="lightbox-nav lb-next" onclick="navigateLightbox(-1)"><i class="fas fa-chevron-left"></i></button>
+    </div>
+
+    <!-- All Photos Modal -->
+    <div class="all-photos-modal" id="allPhotosModal">
+        <button class="all-photos-close" onclick="closeAllPhotos()"><i class="fas fa-times"></i></button>
+        <h2 class="all-photos-title">جميع الصور</h2>
+        <div class="all-photos-grid" id="allPhotosGrid"></div>
+    </div>
+
+    <!-- Trip Modal -->
+    <div class="modal-overlay" id="tripModal">
+        <div class="modal">
+            <div class="modal-header">
+                <img id="modalImg" src="" alt="">
+                <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <h2 id="modalTitle"></h2>
+                <div class="modal-location"><i class="fas fa-map-marker-alt"></i><span id="modalLocation"></span></div>
+                <p class="modal-description" id="modalDesc"></p>
+                <div class="modal-features-grid" id="modalFeatures"></div>
+                <div class="modal-price-section">
+                    <div><div class="modal-price" id="modalPrice"></div></div>
+                    <button class="modal-book-btn" onclick="window.open('https:wa.me/201080954722','_blank')">
+                        <i class="fab fa-whatsapp"></i> احجز الآن
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo" onclick="navigateTo('home')">
+                <span class="nav-logo-text">
+                    <img src="img/ChatGPT_Image_removebg-preview.png"  alt="ROMIXA" style="height: 70px; vertical-align: middle;">
+                </span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a onclick="navigateTo('home')">الرئيسية</a></li>
+                <li><a onclick="navigateTo('about')" >من نحن</a></li>
+                <li><a onclick="navigateTo('hajj')">الحج والعمرة</a></li>
+                <li><a onclick="navigateTo('destinations')">وجهاتنا</a></li>
+                <li><a onclick="navigateTo('packages')">العروض</a></li>
+                <li><a onclick="navigateTo('gallery')">معرض الصور</a></li>
+                <li><a onclick="window.open('https:wa.me/201080954722','_blank')" class="nav-cta">احجز الآن</a></li>
+            </ul>
+            <div class="mobile-toggle" id="mobileToggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <div class="page active" id="page-home">
+        <section class="hero" id="home">
+            <div class="hero-bg">
+                <!-- <img src="https://picsum.photos/seed/hero_bg/1920/1080" alt="Beach Paradise"> -->
+                <img src="img/travel-concept-with-landmarks.jpg" alt="Beach Paradise">
+            </div>
+            <div class="hero-overlay"></div>
+            <div class="particles" id="particles"></div>
+            <div class="hero-content">
+                <div class="hero-badge"><i class="fas fa-star"></i> رحلات مميزه</div>
+                <h1 class="hero-title" id="ghjjj">اكتشف العالم مع<br><span class="gold-text">روميكسا تورز</span></h1>
+                <p class="hero-description">روميكسا تورز  هي وجهتك المثالية لاستكشاف أجمل الوجهات  حول العالم. نقدم لك تجارب سفر فاخرة ومخصصة تناسب جميع الأذواق والميزانيات، مع خدمة عملاء متميزة على مدار الساعة.</p>
+                <div class="hero-buttons">
+                    <a class="btn-primary" onclick="navigateTo('destinations')"><i class="fas fa-compass"></i> استكشف الوجهات</a>
+                    <a class="btn-secondary" onclick="navigateTo('about')"><i class="fas fa-play-circle"></i> تعرف علينا</a>
+                </div>
+                <!-- <div class="hero-stats">
+                    <div class="hero-stat"><span class="hero-stat-number" data-count="15000">0</span><div class="hero-stat-label">عميل سعيد</div></div>
+                    <div class="hero-stat"><span class="hero-stat-number" data-count="50">0</span><div class="hero-stat-label">وجهة سياحية</div></div>
+                    <div class="hero-stat"><span class="hero-stat-number" data-count="18">0</span><div class="hero-stat-label">سنة خبرة</div></div>
+                    <div class="hero-stat"><span class="hero-stat-number" data-count="98">0</span><div class="hero-stat-label">% رضا العملاء</div></div>
+                </div> -->
+            </div>
+        </section>
+
+        <section class="section about-section" id="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-image reveal-left">
+                        <img src="img/photo_2_2026-04-30_01-44-56.jpg" alt="Luxury Hotel">
+                        <div class="about-image-badge"><span class="number">+10</span><span class="text">سنة خبرة</span></div>
+                    </div>
+                    <div class="about-content reveal-right">
+                        <div class="section-subtitle"><span></span>من نحن<span></span></div>
+                        <h2>نحن نصنع <span class="gold-text">ذكريات لا تُنسى</span></h2>
+                        <p>شركة روميكسا تورز  هي إحدى الشركات  الحديثة النشأة، تأسست على يد فريق من خبراء  والسفر بهدف تقديم تجارب سفر استثنائية ترتقي بتطلعات عملائنا.</p>
+                        <p>نؤمن في روميكسا أن السفر ليس مجرد تنقل من مكان إلى آخر، بل هو تجربة متكاملة تثري الحياة وتوسع الآفاق. لذلك نحرص على تقديم برامج سياحية متنوعة داخل مصر تشمل الرحلات الثقافية،  العلاجية، ورحلات شهر العسل، والبرامج العائلية، ورحلات المغامرات، كما ننظم رحلات الحج والعمرة للأراضي المقدسة خارج مصر.</p>
+                        <p>يضم فريقنا نخبة من المرشدين السياحيين المحترفين وخبراء التخطيط الذين يعملون على تصميم كل رحلة بعناية فائقة، كما نتعامل مع أفضل الفنادق والمنتجعات وشركات الطيران لنقدم لعملائنا أرقى مستويات الخدمة منذ الانطلاقة الأولى.</p>
+                        <div class="about-features">
+                            <div class="about-feature"><div class="about-feature-icon"><i class="fas fa-shield-alt"></i></div><span class="about-feature-text">حجز آمن ومضمون</span></div>
+                            <div class="about-feature"><div class="about-feature-icon"><i class="fas fa-headset"></i></div><span class="about-feature-text">دعم 24 ساعة</span></div>
+                            <div class="about-feature"><div class="about-feature-icon"><i class="fas fa-tags"></i></div><span class="about-feature-text">أسعار تنافسية</span></div>
+                            <div class="about-feature"><div class="about-feature-icon"><i class="fas fa-map-marked-alt"></i></div><span class="about-feature-text">مرشدون محترفون</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section services-section" id="services">
+            <div class="container">
+                <div class="section-header reveal">
+                    <div class="section-subtitle"><span></span>خدماتنا<span></span></div>
+                    <h2 class="section-title">ماذا نقدم <span class="gold-text">لعملائنا</span></h2>
+                    <p class="section-description">نقدم مجموعة شاملة ومتكاملة من الخدمات السياحية التي تغطي جميع احتياجاتك</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card reveal"><div class="service-icon"><i class="fas fa-plane"></i></div><h3>حجز الطيران</h3><p>نوفر لك أفضل أسعار تذاكر الطيران مع جميع شركات الطيران العالمية.</p></div>
+                    <div class="service-card reveal"><div class="service-icon"><i class="fas fa-hotel"></i></div><h3>حجز الفنادق</h3><p>شبكة واسعة من الفنادق والمنتجعات في جميع أنحاء العالم بأسعار تنافسية.</p></div>
+                    <div class="service-card reveal"><div class="service-icon"><i class="fas fa-passport"></i></div><h3>تأشيرات السفر</h3><p>خدمة متكاملة للحصول على التأشيرات السياحية لجميع الوجهات.</p></div>
+                    <div class="service-card reveal"><div class="service-icon"><i class="fas fa-map-signs"></i></div><h3>الجولات السياحية</h3><p>جولات سياحية منظمة    في أشهر المعالم.</p></div>
+                    <div class="service-card reveal"><div class="service-icon"><i class="fas fa-ship"></i></div><h3>رحلات بحرية</h3><p>رحلات بحرية فاخرة .</p></div>
+                    <div class="service-card reveal"><div class="service-icon"><i class="fas fa-car"></i></div><h3>تأجير السيارات</h3><p>خدمة تأجير سيارات في جميع الوجهات السياحية بأفضل الأسعار.</p></div>
+                    <div class="service-card reveal"><div class="service-icon"><i class="fas fa-shield-alt"></i></div><h3>تأمين السفر</h3><p>ندعم عملاءنا في حالات الطوارئ والحوادث عبر فريقنا المتواجد معهم.</p></div>
+                    <div class="service-card reveal"><div class="service-icon"><i class="fas fa-gem"></i></div><h3>رحلات VIP</h3><p>رحلات فاخرة مخصصة تشمل طائرات خاصة وفنادق 5 نجوم.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section stats-section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item reveal"><div class="stat-icon"><i class="fas fa-users"></i></div><span class="stat-number" data-count="15000">0</span><span class="stat-label">عميل سعيد حول العالم</span></div>
+                    <div class="stat-item reveal"><div class="stat-icon"><i class="fas fa-globe-americas"></i></div><span class="stat-number" data-count="50">0</span><span class="stat-label">وجهة سياحية مميزة</span></div>
+                    <div class="stat-item reveal"><div class="stat-icon"><i class="fas fa-award"></i></div><span class="stat-number" data-count="1">0</span><span class="stat-label"> تميز بين الشركات </span></div>
+                    <div class="stat-item reveal"><div class="stat-icon"><i class="fas fa-handshake"></i></div><span class="stat-number" data-count="200">0</span><span class="stat-label"> تعاون </span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section testimonials-section" id="testimonials">
+            <div class="container">
+                <div class="section-header reveal">
+                    <div class="section-subtitle"><span></span>آراء العملاء<span></span></div>
+                    <h2 class="section-title">ماذا يقول <span class="gold-text">عملاؤنا عنا</span></h2>
+                    <p class="section-description">نفخر بثقة آلاف العملاء الذين اختاروا روميكسا تورز لتجاربهم السياحية المميزة</p>
+                </div>
+                <div class="testimonials-slider-wrapper reveal">
+                   <div class="testimonials-track" id="testimonialsTrack">
+    <!-- تعليق 1 - مصري -->
+    <div class="testimonial-card">
+        <div class="testimonial-quote-icon"><i class="fas fa-quote-right"></i></div>
+        <p class="testimonial-text">والله تجربة تحفة! روميكسا سهّلولنا كل حاجة في رحلة باريس، من الطيران للفنادق. أنا وزوجتي مبسوطين أوي، هنكررها تاني بجد.</p>
+        <div class="testimonial-author">
+            <div class="testimonial-avatar">م</div>
+            <div class="testimonial-info"><h4>محمد عبدالله</h4><p>رحلة باريس </p></div>
+            <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        </div>
+    </div>
+    <!-- تعليق 2 - سعودي -->
+    <div class="testimonial-card">
+        <div class="testimonial-quote-icon"><i class="fas fa-quote-right"></i></div>
+        <p class="testimonial-text">ما شاء الله، تعامل أكثر من رائع. حجزنا عندهم شهر العسل في مالديف، وكل شي كان منظم ومريح. أنصحكم وبقوة، يستاهلون الخمس نجوم.</p>
+        <div class="testimonial-author">
+            <div class="testimonial-avatar">خ</div>
+            <div class="testimonial-info"><h4>خالد وسارة</h4><p>شهر عسل مالديف  </p></div>
+            <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        </div>
+    </div>
+    <!-- تعليق 3 - مصري -->
+    <div class="testimonial-card">
+        <div class="testimonial-quote-icon"><i class="fas fa-quote-right"></i></div>
+        <p class="testimonial-text">بجد كنت خايف أحجز أونلاين، لكن روميكسا كانوا مضمونين أوي. رحلة تركيا كانت جميلة، المرشد بتاعهم فنان والمواصلات نظيفة. شكراً ليكم.</p>
+        <div class="testimonial-author">
+            <div class="testimonial-avatar">ع</div>
+            <div class="testimonial-info"><h4>عمرو حسن</h4><p>رحلة عائلية تركيا  </p></div>
+            <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+        </div>
+    </div>
+    <!-- تعليق 4 - سعودي -->
+    <div class="testimonial-card">
+        <div class="testimonial-quote-icon"><i class="fas fa-quote-right"></i></div>
+        <p class="testimonial-text">دبي كانت روعة، والحجز عن طريقهم سهل وسريع. الفندق كان فخم والجولات السياحية منظمة. يعطيكم العافية على هالخدمة المتميزة.</p>
+        <div class="testimonial-author">
+            <div class="testimonial-avatar">ن</div>
+            <div class="testimonial-info"><h4>نورة العتيبي</h4><p>رحلة دبي  </p></div>
+            <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        </div>
+    </div>
+    <!-- تعليق 5 - مصري -->
+    <div class="testimonial-card">
+        <div class="testimonial-quote-icon"><i class="fas fa-quote-right"></i></div>
+        <p class="testimonial-text">الرحلة البحرية اللي عملوها كانت حاجة تانية خالص. السفينة زي القصر والخدمة على أعلى مستوى. هكررها كل سنة بإذن الله.</p>
+        <div class="testimonial-author">
+            <div class="testimonial-avatar">أ</div>
+            <div class="testimonial-info"><h4>أحمد فتحي</h4><p>رحلة بحرية  </p></div>
+            <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        </div>
+    </div>
+    <!-- تعليق 6 - سعودي -->
+    <div class="testimonial-card">
+        <div class="testimonial-quote-icon"><i class="fas fa-quote-right"></i></div>
+        <p class="testimonial-text">سويسرا كانت حلـم، وروميكسا حققوه لنا بأفضل شكل. الفنادق كانت نظيفة والجولات ممتعة. الصراحة ما قصرتم، شكراً جزيلاً.</p>
+        <div class="testimonial-author">
+            <div class="testimonial-avatar">ل</div>
+            <div class="testimonial-info"><h4>ليلى القحطاني</h4><p>رحلة سويسرا  </p></div>
+            <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        </div>
+    </div>
+    <!-- تعليق 7 - مصري -->
+    <div class="testimonial-card">
+        <div class="testimonial-quote-icon"><i class="fas fa-quote-right"></i></div>
+        <p class="testimonial-text">شكراً روميكسا على الرحلة الرومانسية في سانتوريني. كل حرف كان متظبط، من الفيلا المطلة على البحر لمواعيد الرحلات. أنتم الأفضل.</p>
+        <div class="testimonial-author">
+            <div class="testimonial-avatar">ه</div>
+            <div class="testimonial-info"><h4>هاني ومها</h4><p>شهر عسل اليونان  </p></div>
+            <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        </div>
+    </div>
+    <!-- تعليق 8 - سعودي -->
+    <div class="testimonial-card">
+        <div class="testimonial-quote-icon"><i class="fas fa-quote-right"></i></div>
+        <p class="testimonial-text">زيارة مصر والأهرامات كانت تجربة عمر، والفضل لروميكسا. المرشد كان محترف وشرح لنا كل حاجة بالتفصيل. أنصح بهم لكل من يبي يسافر.</p>
+        <div class="testimonial-author">
+            <div class="testimonial-avatar">خ</div>
+            <div class="testimonial-info"><h4>خالد العنزي</h4><p>رحلة مصر  </p></div>
+            <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+        </div>
+    </div>
+    <!-- تعليق 9 - مصري -->
+    <div class="testimonial-card">
+        <div class="testimonial-quote-icon"><i class="fas fa-quote-right"></i></div>
+        <p class="testimonial-text">صدقوني أنا مسافر قديم، لكن روميكسا غيروا نظري  المنظمة. أسعارهم كويسة جداً والخدمة سريعة. ناس محترمة وفاهمة شغلها.</p>
+        <div class="testimonial-author">
+            <div class="testimonial-avatar">ف</div>
+            <div class="testimonial-info"><h4>فاطمة الزهراء</h4><p>رحلة لندن  </p></div>
+            <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        </div>
+    </div>
+</div>
+                    <button class="testimonial-arrow right-arrow" onclick="slideTestimonials(1)"><i class="fas fa-chevron-right"></i></button>
+                    <button class="testimonial-arrow left-arrow" onclick="slideTestimonials(-1)"><i class="fas fa-chevron-left"></i></button>
+                </div>
+                <div class="testimonial-dots" id="testimonialDots"></div>
+            </div>
+        </section>
+
+        <section class="section map-section" id="contact">
+            <div class="container">
+                <div class="map-grid">
+                    <div class="map-content reveal-left">
+                        <div class="section-subtitle" style="justify-content: flex-start;"><span></span>موقعنا<span></span></div>
+                        <h2>زورنا في <span class="gold-text">مقرنا الرئيسي</span></h2>
+                        <p>يسعدنا زيارتكم في مقرنا الرئيسي حيث يمكنكم التحدث مع فريقنا المتخصص ومناقشة خطط رحلتكم القادمة. نحن هنا لخدمتكم وتقديم أفضل العروض والباقات السياحية التي تناسب احتياجاتكم.</p>
+                        <p>يمكنك أيضاً التواصل معنا عبر الهاتف أو البريد الإلكتروني أو زيارة مكتبنا في أي وقت خلال ساعات العمل الرسمية. فريقنا جاهز لمساعدتك في تحقيق أحلامك السياحية.</p>
+                        <ul class="map-info-list">
+                            <li><i class="fas fa-map-marker-alt"></i><span>دمياط الجديدة - شارع المرور</span></li>
+                            <li><i class="fas fa-phone-alt"></i><span dir="ltr">+20 1080954722</span></li>
+                            <li><i class="fas fa-envelope"></i><span>romixa.tours@gmail.com</span></li>
+                            <li><i class="fas fa-clock"></i><span>السبت - الخميس: 9:00 ص - 9:00 م</span></li>
+                            <li><i class="fab fa-whatsapp"></i><span dir="ltr">+20 1080954722</span></li>
+                        </ul>
+                    </div>
+                    <div class="map-container reveal-right">
+                        <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3432.6729889636!2d31.2357!3d30.0444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145840c6b0e0f0f1%3A0x1234567890abcdef!2sTahrir%20Square%2C%20Cairo!5e0!3m2!1sen!2seg!4v1234567890" allowfullscreen="" loading="lazy"></iframe> -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5028.3081448735!2d31.666349254512138!3d31.432926024513982!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f9e3185c26935d%3A0x690073f965f374ad!2z2LLYp9mK2K8g2YTYqtis2KfYsdmHINin2YTYpdi32KfYsdin2Kog2Ygg2KfZhNio2LfYp9ix2YrYp9iq!5e0!3m2!1sar!2seg!4v1777505927974!5m2!1sar!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <div class="page" id="page-about">
+        <div class="page-content">
+            <!-- About Hero -->
+            <section class="about-hero">
+                <div class="about-hero-bg">
+                    <img src="img/photo_2_2026-04-30_01-44-56.jpg" alt="Travel World">
+                </div>
+                <div class="about-hero-overlay"></div>
+                <div class="about-hero-content">
+                    <div class="section-subtitle"><span></span>من نحن<span></span></div>
+                    <h1>روميكسا تورز <span class="gold-text"></span></h1>
+                    <p>نحن نصنع رحلات لا تُنسى </p>
+                </div>
+            </section>
+
+            <!-- Our Story -->
+            <section class="section story-section">
+                <div class="container">
+                    <div class="story-grid">
+                        <div class="story-content reveal-right">
+                            <h2>قصتنا <span class="gold-text">من البداية</span></h2>
+                            <!-- <p>بدأت رحلة روميكسا تورز في عام 2005 من حب عميق للسفر والاستكشاف. تأسست الشركة على يد مجموعة من خبراء السياحة </p>
+                            <p>على مدار أكثر من 18 عاماً، نجحنا في بناء سمعة طيبة كواحدة من أكثر شركات السياحة موثوقية في المنطقة. نفتخر بخدمة أكثر من 15,000 عميل سعيد، وتنظيم رحلات إلى أكثر من 50 وجهة سياحية حول العالم.</p>
+                            <p>نؤمن أن كل رحلة هي فرصة لخلق ذكريات تدوم مدى الحياة. لذلك نبذل قصارى جهدنا في تخطيط كل تفصيل، من اختيار الفندق المناسب إلى تصميم الجولات السياحية الفريدة.</p> -->
+                        <p>خبرة تتجاوز عشر سنوات في قطاع  استطعت أن أرسخ اسمي كأحد الكفاءات القيادية التي تجمع بين الخبرة الميدانية والرؤية الاستراتيجية. بدأت رحلتي بشغف حقيقي لتقديم تجارب سفر مميزة، وتطورت حتى أصبحت قادرًا على قيادة منظومة سياحية متكاملة ترتكز على الاحترافية وبناء الثقة مع العملاء والشركاء.</p>
+                        <p>وبجانب دوري كرئيس مجلس إدارة، شغلت منصب مدير تنفيذي داخل المملكة العربية السعودية، حيث قدمت نموذجًا متقدمًا في إدارة وتشغيل الخدمات  وفق أعلى معايير الجودة والفخامة (Five Stars). هذا الدور عزز من خبرتي الدولية، ومكنني من تقديم خدمات راقية تلبي تطلعات عملاء يبحثون عن التميز الحقيقي.</p>
+                        <p>أؤمن أن النجاح في عالم  لا يُقاس فقط بعدد الرحلات، بل بقيمة التجربة التي يعيشها العميل. لذلك أقود العمل برؤية طموحة قائمة على الابتكار، الجودة، وتقديم خدمات سياحية متكاملة ترتقي لمستوى عالمي وتفوق التوقعات.</p>
+                        <p>طموحي أن تكون شركتنا دائمًا الخيار الأول لكل من يبحث عن الفخامة، الثقة، وتجربة سفر استثنائية بكل تفاصيلها.</p>
+                    </div>
+                        <div class="story-image reveal-left">
+                            <img src="img/photo_2_2026-04-28_23-52-20.jpg" alt="Travel Story">
+                            <div class="story-badge">
+                                <span class="number">10+</span>
+                                <span class="text">سنة من التميز</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Mission & Vision -->
+            <section class="section mission-section">
+                <div class="container">
+                    <div class="mission-grid">
+                        <div class="mission-card reveal">
+                            <div class="mission-icon"><i class="fas fa-bullseye"></i></div>
+                            <h3>رسالتنا</h3>
+                            <p>تقديم تجارب سفر فريدة واستثنائية تلبي تطلعات عملائنا وتفوق توقعاتهم، مع الحفاظ على أعلى معايير الجودة والخدمة في كل رحلة ننظمها.</p>
+                        </div>
+                        <div class="mission-card reveal">
+                            <div class="mission-icon"><i class="fas fa-eye"></i></div>
+                            <h3>رؤيتنا</h3>
+                            <p>أن نكون الخيار الأول للمسافرين في المنطقة العربية، وأن نُعرف كأفضل شركة  تقدم رحلات مخصصة بأعلى مستويات الفخامة والراحة.</p>
+                        </div>
+                        <div class="mission-card reveal">
+                            <div class="mission-icon"><i class="fas fa-heart"></i></div>
+                            <h3>قيمنا</h3>
+                            <p>النزاهة والشفافية في التعامل، والالتزام التام بجودة الخدمة، والابتكار المستمر في برامجنا  والاهتمام بأدق التفاصيل.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Why Choose Us -->
+            <section class="section why-us-section">
+                <div class="container">
+                    <div class="section-header reveal">
+                        <div class="section-subtitle"><span></span>لماذا نحن<span></span></div>
+                        <h2 class="section-title">اختر روميكسا <span class="gold-text">لرحلتك القادمة</span></h2>
+                    </div>
+                    <div class="why-us-grid">
+                        <div class="why-us-card reveal">
+                            <div class="why-us-icon"><i class="fas fa-certificate"></i></div>
+                            <h4>خبرة موثوقة</h4>
+                            <p>أكثر من 10 أعوام في مجال  والسفر مع فريق من الخبراء المحترفين.</p>
+                        </div>
+                        <div class="why-us-card reveal">
+                            <div class="why-us-icon"><i class="fas fa-dollar-sign"></i></div>
+                            <h4>أفضل الأسعار</h4>
+                            <p>نضمن لك أفضل الأسعار مع خدمة عالية الجودة   </p>
+                        </div>
+                        <div class="why-us-card reveal">
+                            <div class="why-us-icon"><i class="fas fa-user-shield"></i></div>
+                            <h4>أمان تام</h4>
+                            <p>حجوزات مضمونة 100% .</p>
+                        </div>
+                        <div class="why-us-card reveal">
+                            <div class="why-us-icon"><i class="fas fa-headset"></i></div>
+                            <h4>دعم 24<h4>
+                            <p>فريق دعم متخصص متاح على مدار الساعة لمساعدتك أينما كنت.</p>
+                        </div>
+                        <div class="why-us-card reveal">
+                            <div class="why-us-icon"><i class="fas fa-route"></i></div>
+                            <h4>برامج مخصصة</h4>
+                            <p>نصمم رحلتك حسب تفضيلاتك الخاصة سواء كانت عائلية أو رومانسية.</p>
+                        </div>
+                        <div class="why-us-card reveal">
+                            <div class="why-us-icon"><i class="fas fa-handshake"></i></div>
+                            <h4>شراكات عالمية</h4>
+                            <p>نتعاون مع أفضل الفنادق وشركات الطيران حول العالم لضمان أفضل تجربة.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Team Section -->
+            <section class="section team-section">
+                <div class="container">
+                    <div class="section-header reveal">
+                        <div class="section-subtitle"><span></span>مكتبنا<span></span></div>
+                        <h2 class="section-title"> وجهتك <span class="gold-text">المثاليه </span></h2>
+                    </div>
+                    <div class="team-grid">
+                        <div class="team-card reveal">
+                            <div class="team-image">
+                                <img src="img/photo_1_2026-04-30_01-44-56.jpg" alt="company">
+                            </div>
+                            <div class="team-info">
+                                <h4> سفر</h4>
+                                <!-- <p>المدير التنفيذي</p> -->
+                                <div class="team-social">
+                                    <a href="https://www.facebook.com/share/14c8RnxYRoW/" target="_blank"><i class="fa-solid fa-plane-departure"></i></a>
+                                    <!-- <a href="#"><i class="fab fa-twitter"></i></a> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-card reveal">
+                            <div class="team-image">
+                                <img src="img/ChatGPT Image Apr 30, 2026, 05_36_56 AM.png" alt="company">
+                            </div>
+                            <div class="team-info">
+                                <h4>اكتشاف </h4>
+                                <!-- <p>مديرة العمليات</p> -->
+                                <div class="team-social">
+                                    <a href="https://www.facebook.com/share/14c8RnxYRoW/" target="_blank"><i class="fa-solid fa-map-location-dot"></i></a>
+                                    <!-- <a href="#"><i class="fab fa-twitter"></i></a> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-card reveal">
+                            <div class="team-image">
+                                <img src="img/photo_3_2026-04-30_01-44-56.jpg" alt="company ">
+                            </div>
+                            <div class="team-info">
+                                <h4> متعة </h4>
+                                <!-- <p>خبير الوجهات الأوروبية</p> -->
+                                <div class="team-social">
+                                    <a href="https://www.facebook.com/share/14c8RnxYRoW/" target="_blank"><i class="fa-solid fa-face-grin-stars"></i></a>
+                                    <!-- <a href="#"><i class="fab fa-twitter"></i></a> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-card reveal">
+                            <div class="team-image">
+                                <img src="img/photo_2_2026-04-30_01-44-56.jpg" alt=" company">
+                            </div>
+                            <div class="team-info">
+                                <h4> ذكريات</h4>
+                                <!-- <p>مديرة خدمة العملاء</p> -->
+                                <div class="team-social">
+                                    <a href="https://www.facebook.com/share/14c8RnxYRoW/" target="_blank"><i class="fa-solid fa-calendar"></i></a>
+                                    <!-- <a href="#"><i class="fab fa-twitter"></i></a> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Achievements -->
+            <section class="section achievements-section">
+                <div class="container">
+                    <div class="section-header reveal">
+                        <div class="section-subtitle"><span></span>إنجازاتنا<span></span></div>
+                        <h2 class="section-title">أرقام <span class="gold-text">تتحدث عنا</span></h2>
+                    </div>
+                    <div class="achievements-grid">
+                        <div class="achievement-item reveal">
+                            <div class="achievement-icon"><i class="fas fa-users"></i></div>
+                            <span class="achievement-number" data-count="15000">0</span>
+                            <span class="achievement-label">عميل سعيد</span>
+                        </div>
+                        <div class="achievement-item reveal">
+                            <div class="achievement-icon"><i class="fas fa-globe"></i></div>
+                            <span class="achievement-number" data-count="50">0</span>
+                            <span class="achievement-label">وجهة سياحية</span>
+                        </div>
+                        <div class="achievement-item reveal">
+                            <div class="achievement-icon"><i class="fas fa-plane-departure"></i></div>
+                            <span class="achievement-number" data-count="+100">0</span>
+                            <span class="achievement-label">رحلات منظمة</span>
+                        </div>
+                        <!-- <div class="achievement-item reveal">
+                            <div class="achievement-icon"><i class="fas fa-trophy"></i></div>
+                            <span class="achievement-number" data-count="12">0</span>
+                            <span class="achievement-label">جائزة عالمية</span>
+                        </div> -->
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- DESTINATIONS PAGE -->
+    <div class="page" id="page-destinations">
+        <div class="page-content">
+            <section class="section destinations-section">
+                <div class="container">
+                    <div class="section-header reveal">
+                        <div class="section-subtitle"><span></span>وجهاتنا السياحية<span></span></div>
+                        <h2 class="section-title">استكشف أجمل <span class="gold-text">الوجهات العالمية</span></h2>
+                        <p class="section-description">نقدم لك مجموعة متنوعة من الوجهات السياحية الساحرة حول العالم</p>
+                        <div class="section-subtitle"><span></span>قريباً ..<span></span></div>
+
+                    </div>
+
+                    <!-- Filter -->
+                    <div class="filter-section reveal">
+                        <div class="filter-header">
+                            <h3><i class="fas fa-filter"></i> فلترة الرحلات</h3>
+                            <button class="filter-reset-btn" onclick="resetFilter()"><i class="fas fa-redo"></i> إعادة تعيين</button>
+                        </div>
+                        <div class="filter-grid">
+                            <div class="filter-group">
+                                <label>ابحث بالاسم</label>
+                                <input type="text" id="filterName" placeholder="مثال: باريس..." oninput="filterDestinations()">
+                            </div>
+                            <div class="filter-group">
+                                <label>القارة</label>
+                                <select id="filterContinent" onchange="filterDestinations()">
+                                    <option value="">جميع القارات</option>
+                                    <option value="europe">أوروبا</option>
+                                    <option value="asia">آسيا</option>
+                                    <option value="africa">أفريقيا</option>
+                                    <option value="americas">الأمريكتان</option>
+                                    <option value="oceania">أوقيانوسيا</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label>نوع الرحلة</label>
+                                <select id="filterType" onchange="filterDestinations()">
+                                    <option value="">جميع الأنواع</option>
+                                    <option value="cultural">ثقافية</option>
+                                    <option value="beach">شاطئية</option>
+                                    <option value="adventure">مغامرات</option>
+                                    <option value="romantic">رومانسية</option>
+                                    <option value="historical">تاريخية</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label>ترتيب حسب</label>
+                                <select id="filterSort" onchange="filterDestinations()">
+                                    <option value="default">الافتراضي</option>
+                                    <option value="price-low">السعر: من الأقل</option>
+                                    <option value="price-high">السعر: من الأعلى</option>
+                                    <option value="name">الاسم أبجدياً</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="destinations-grid" id="destinationsGrid"></div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- PACKAGES PAGE -->
+    <div class="page" id="page-packages">
+        <div class="page-content">
+            <section class="section packages-section">
+                <div class="container">
+                    <div class="section-header reveal">
+                        <div class="section-subtitle"><span></span>العروض والباكدجات<span></span></div>
+                        <h2 class="section-title">أفضل العروض <span class="gold-text">الحصرية</span></h2>
+                        <p class="section-description">باقات سياحية متكاملة بأسعار مميزة تشمل الطيران والإقامة والجولات</p>
+                        <div class="section-subtitle"><span></span> قريباً ..<span></span></div>
+
+                    </div>
+                    <div class="packages-grid">
+                        <div class="package-card reveal">
+                            <div class="package-image"><img src="https://picsum.photos/seed/maldives_pkg/600/400" alt="Resort"></div>
+                            <div class="package-content">
+                                <div class="package-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span>(4.5)</span></div>
+                                <h3>باقة مالديف الاستوائية</h3>
+                                <p>7 ليالي في منتجع فاخر على الماء مع وجبات كاملة وأنشطة بحرية متنوعة.</p>
+                                <div class="package-features">
+                                    <span class="package-feature"><i class="fas fa-plane"></i> طيران</span>
+                                    <span class="package-feature"><i class="fas fa-hotel"></i> إقامة 5 نجوم</span>
+                                    <span class="package-feature"><i class="fas fa-utensils"></i> وجبات كاملة</span>
+                                    <span class="package-feature"><i class="fas fa-shuttle-van"></i> نقل</span>
+                                </div>
+                                <div class="package-footer">
+                                    <a href="https://wa.me/201080954722" target="_blank" class="package-btn">احجز الآن</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="package-card featured reveal">
+                            <div class="package-image"><img src="https://picsum.photos/seed/europe_pkg/600/400" alt="Europe"></div>
+                            <div class="package-content">
+                                <div class="package-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span>(5.0)</span></div>
+                                <h3>باقة أوروبا الكلاسيكية</h3>
+                                <p>12 يوم في باريس ولندن وروما مع جولات سياحية كاملة وإقامة فاخرة.</p>
+                                <div class="package-features">
+                                    <span class="package-feature"><i class="fas fa-plane"></i> طيران</span>
+                                    <span class="package-feature"><i class="fas fa-hotel"></i> فنادق فاخرة</span>
+                                    <span class="package-feature"><i class="fas fa-map-signs"></i> جولات يومية</span>
+                                    <span class="package-feature"><i class="fas fa-car"></i> ترانسفيرات</span>
+                                </div>
+                                <div class="package-footer">
+                                    <a href="https://wa.me/201080954722" target="_blank" class="package-btn">احجز الآن</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="package-card reveal">
+                            <div class="package-image"><img src="https://picsum.photos/seed/cruise_pkg/600/400" alt="Cruise"></div>
+                            <div class="package-content">
+                                <div class="package-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><span>(4.0)</span></div>
+                                <h3>باقة البحر الأبيض المتوسط</h3>
+                                <p>رحلة بحرية لمدة 8 أيام عبر أجمل الموانئ الأوروبية مع أنشطة ترفيهية.</p>
+                                <div class="package-features">
+                                    <span class="package-feature"><i class="fas fa-ship"></i> رحلة بحرية</span>
+                                    <span class="package-feature"><i class="fas fa-utensils"></i> كل شمول</span>
+                                    <span class="package-feature"><i class="fas fa-child"></i> أنشطة أطفال</span>
+                                    <span class="package-feature"><i class="fas fa-spa"></i> سبا</span>
+                                </div>
+                                <div class="package-footer">
+                                    <a href="https://wa.me/201080954722" target="_blank" class="package-btn">احجز الآن</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="package-card reveal">
+                            <div class="package-image"><img src="https://picsum.photos/seed/dubai_pkg/600/400" alt="Dubai"></div>
+                            <div class="package-content">
+                                <div class="package-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span>(4.5)</span></div>
+                                <h3>باقة دبي الفاخرة</h3>
+                                <p>5 ليالي في برج العرب مع رحلات سفاري صحراوية وجولات مثيرة.</p>
+                                <div class="package-features">
+                                    <span class="package-feature"><i class="fas fa-plane"></i> طيران</span>
+                                    <span class="package-feature"><i class="fas fa-hotel"></i> برج العرب</span>
+                                    <span class="package-feature"><i class="fas fa-car"></i> سيارة فارهة</span>
+                                    <span class="package-feature"><i class="fas fa-utensils"></i> عشاء فاخر</span>
+                                </div>
+                                <div class="package-footer">
+                                    <a href="https://wa.me/201080954722" target="_blank" class="package-btn">احجز الآن</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="package-card reveal">
+                            <div class="package-image"><img src="https://picsum.photos/seed/swiss_pkg/600/400" alt="Swiss"></div>
+                            <div class="package-content">
+                                <div class="package-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span>(5.0)</span></div>
+                                <h3>باقة سويسرا الساحرة</h3>
+                                <p>10 أيام في أجمل مدن سويسرا مع قطار الجليد السريع وتزلج على الجليد.</p>
+                                <div class="package-features">
+                                    <span class="package-feature"><i class="fas fa-plane"></i> طيران</span>
+                                    <span class="package-feature"><i class="fas fa-train"></i> قطارات</span>
+                                    <span class="package-feature"><i class="fas fa-skiing"></i> تزلج</span>
+                                    <span class="package-feature"><i class="fas fa-hotel"></i> شاليهات</span>
+                                </div>
+                                <div class="package-footer">
+                                    <a href="https://wa.me/201080954722" target="_blank" class="package-btn">احجز الآن</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="package-card featured reveal">
+                            <div class="package-image"><img src="https://picsum.photos/seed/greece_pkg/600/400" alt="Greece"></div>
+                            <div class="package-content">
+                                <div class="package-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span>(5.0)</span></div>
+                                <h3>باقة اليونان الرومانسية</h3>
+                                <p>شهر عسل مثالي في سانتوريني وميكونوس مع غروب ساحر ورحلات بحرية.</p>
+                                <div class="package-features">
+                                    <span class="package-feature"><i class="fas fa-plane"></i> طيران</span>
+                                    <span class="package-feature"><i class="fas fa-hotel"></i> فيلات خاصة</span>
+                                    <span class="package-feature"><i class="fas fa-ship"></i> يخت خاص</span>
+                                    <span class="package-feature"><i class="fas fa-utensils"></i> عشاء رومانسي</span>
+                                </div>
+                                <div class="package-footer">
+                                    <a href="https://wa.me/201080954722" target="_blank" class="package-btn">احجز الآن</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- HAJJ & UMRAH PAGE -->
+    <div class="page" id="page-hajj">
+        <div class="page-content">
+            <section class="section hajj-section">
+                <div class="container">
+                    <div class="section-header reveal">
+                        <div class="section-subtitle"><span></span>الحج والعمرة<span></span></div>
+                        <h2 class="section-title">رحلات <span class="gold-text">الحج والعمرة</span></h2>
+                        <p class="section-description">نقدم لك أفضل باقات الحج والعمرة بأسعار تنافسية وخدمة متميزة تشمل كل ما تحتاجه لرحلة روحانية مريحة</p>
+                        <div class="section-subtitle"><span></span>قريباً..<span></span></div>
+                    </div>
+                    <div class="hajj-grid">
+                        <div class="hajj-card reveal">
+                            <div class="hajj-card-image">
+                                <img src="img/haj-4.jpg" alt="Hajj">
+                                <div class="hajj-card-badge">الأكثر طلباً</div>
+                            </div>
+                            <div class="hajj-card-content">
+                                <h3>باقة الحج المميزة</h3>
+                                <p>باقة حج شاملة تشمل الإقامة في فنادق 5 نجوم بالقرب من الحرم الشريف مع خدمات متكاملة ومرشدين دينيين متخصصين.</p>
+                            </div>
+                            <div class="hajj-details" id="hajjDetails1">
+                                <div class="hajj-detail-item"><i class="fas fa-plane"></i><span>طيران ذهاب وعودة - خطوط سعودية أو مصر للطيران</span></div>
+                                <div class="hajj-detail-item"><i class="fas fa-hotel"></i><span>إقامة 15 ليلة في فنادق 5 نجوم (منى - مزدلفة - عرفات)</span></div>
+                                <div class="hajj-detail-item"><i class="fas fa-utensils"></i><span>وجبات كاملة 3 مرات يومياً - أكل حلال مضمون</span></div>
+                                <div class="hajj-detail-item"><i class="fas fa-bus"></i><span>نقل مكيف بين المشاعر المقدسة</span></div>
+                                <!-- <div class="hajj-detail-item"><i class="fas fa-user-tie"></i><span>مرشد ديني متخصص طوال فترة الحج</span></div> -->
+                                <!-- <div class="hajj-detail-item"><i class="fas fa-first-aid"></i><span>رعاية طبية متاحة 24/7</span></div> -->
+                                <!-- <div class="hajj-detail-item"><i class="fas fa-suitcase"></i><span>شنطة هدية + ملابس إحرام</span></div> -->
+                            </div>
+                            <div class="hajj-card-footer">
+                                <button class="hajj-toggle-btn" onclick="toggleHajjDetails(1)"><span>التفاصيل</span><i class="fas fa-chevron-down"></i></button>
+                            </div>
+                        </div>
+                        <div class="hajj-card reveal">
+                            <div class="hajj-card-image">
+                                <img src="img/haj-1.jpg" alt="Umrah">
+                                <div class="hajj-card-badge">عمرة رجب</div>
+                            </div>
+                            <div class="hajj-card-content">
+                                <h3>باقة العمرة الاقتصادية</h3>
+                                <p>عمرة ميسرة بأسعار تنافسية تشمل الطيران والإقامة والتنقل مع مرشد ديني وجميع الخدمات الأساسية.</p>
+                            </div>
+                            <div class="hajj-details" id="hajjDetails2">
+                                <div class="hajj-detail-item"><i class="fas fa-plane"></i><span>طيران ذهاب وعودة - أفضل الأسعار المتاحة</span></div>
+                                <div class="hajj-detail-item"><i class="fas fa-hotel"></i><span>إقامة 10 ليالي فندق 4 نجوم قريب من الحرم</span></div>
+                                <!-- <div class="hajj-detail-item"><i class="fas fa-utensils"></i><span>وجبة إفطار يومية بوفيه متنوع</span></div> -->
+                                <div class="hajj-detail-item"><i class="fas fa-bus"></i><span>نقل من وإلى المطار والتنقل بين مكة والمدينة</span></div>
+                                <!-- <div class="hajj-detail-item"><i class="fas fa-user-tie"></i><span>مرشد ديني لشرح مناسك العمرة</span></div> -->
+                                <div class="hajj-detail-item"><i class="fas fa-mosque"></i><span>زيارة المساجد التاريخية في المدينة المنورة</span></div>
+                            </div>
+                            <div class="hajj-card-footer">
+                                <button class="hajj-toggle-btn" onclick="toggleHajjDetails(2)"><span>التفاصيل</span><i class="fas fa-chevron-down"></i></button>
+                            </div>
+                        </div>
+                        <div class="hajj-card reveal">
+                            <div class="hajj-card-image">
+                                <img src="img/haj.jpg" alt="Umrah VIP">
+                                <div class="hajj-card-badge">VIP فاخر</div>
+                            </div>
+                            <div class="hajj-card-content">
+                                <h3>باقة العمرة الفاخرة VIP</h3>
+                                <p>عمرة فاخرة بتجربة استثنائية تشمل أجنحة ملكية في فنادق المطلة على الحرم وخدمات خاصة حصرية.</p>
+                            </div>
+                            <div class="hajj-details" id="hajjDetails3">
+                                <div class="hajj-detail-item"><i class="fas fa-plane"></i><span>طيران درجة رجال أعمال - خطوط سعودية</span></div>
+                                <div class="hajj-detail-item"><i class="fas fa-hotel"></i><span>إقامة 12 ليلة في فندق فيرمونت أو ما يعادلها (مطلة على الحرم)</span></div>
+                                <div class="hajj-detail-item"><i class="fas fa-utensils"></i><span>وجبات كاملة في مطاعم فاخرة حلال</span></div>
+                                <div class="hajj-detail-item"><i class="fas fa-car"></i><span>سيارة خاصة مع سائق طوال فترة الإقامة</span></div>
+                                <!-- <div class="hajj-detail-item"><i class="fas fa-user-tie"></i><span>مرشد ديني خاص + مساعد شخصي</span></div> -->
+                                <!-- <div class="hajj-detail-item"><i class="fas fa-spa"></i><span>جلسات سبا وتدليك استرخاء</span></div> -->
+                                <!-- <div class="hajj-detail-item"><i class="fas fa-gift"></i><span>هدايا تذكارية فاخرة + شنطة سفر</span></div> -->
+                            </div>
+                            <div class="hajj-card-footer">
+                                <button class="hajj-toggle-btn" onclick="toggleHajjDetails(3)"><span>التفاصيل</span><i class="fas fa-chevron-down"></i></button>
+                            </div>
+                        </div>
+                        <div class="hajj-card reveal">
+                            <div class="hajj-card-image">
+                                <img src="img/haj-2.jpg" alt="Family Umrah">
+                                <div class="hajj-card-badge">عائلي</div>
+                            </div>
+                            <div class="hajj-card-content">
+                                <h3>باقة العمرة العائلية</h3>
+                                <p>باقة مخصصة للعائلات تشمل غرف عائلية واسعة وأنشطة للأطفال ومرشد ديني متخصص في تعليم الأطفال.</p>
+                            </div>
+                            <div class="hajj-details" id="hajjDetails4">
+                                <div class="hajj-detail-item"><i class="fas fa-plane"></i><span>طيران ذهاب وعودة - أسعار مخفضة للعائلات</span></div>
+                                <div class="hajj-detail-item"><i class="fas fa-hotel"></i><span>إقامة 10 ليالي غرف عائلية متصلة 4 نجوم</span></div>
+                                <div class="hajj-detail-item"><i class="fas fa-utensils"></i><span>وجبات إفطار وغداء يومية</span></div>
+                                <div class="hajj-detail-item"><i class="fas fa-bus"></i><span>نقل حافلة مكيفة خاصة بالعائلة</span></div>
+                                <!-- <div class="hajj-detail-item"><i class="fas fa-child"></i><span>أنشطة تعليمية للأطفال + مرشد ديني</span></div> -->
+                                <!-- <div class="hajj-detail-item"><i class="fas fa-gamepad"></i><span>غرفة ترفيه للأطفال في الفندق</span></div> -->
+                            </div>
+                            <div class="hajj-card-footer">
+                                <button class="hajj-toggle-btn" onclick="toggleHajjDetails(4)"><span>التفاصيل</span><i class="fas fa-chevron-down"></i></button>
+                            </div>
+                        </div>
+                        <div class="hajj-card reveal">
+                            <div class="hajj-card-image">
+                                <img src="img/haj-3.jpg" alt="Ramadan Umrah">
+                                <div class="hajj-card-badge">رمضان </div>
+                            </div>
+                            <div class="hajj-card-content">
+                                <h3>باقة عمرة رمضان</h3>
+                                <p>عمرة في أجواء رمضان الروحانية، إقامة قرب الحرم مع إفطارات جماعية وصلاة التراويح في الحرم الشريف.</p>
+                            </div>
+                            <div class="hajj-details" id="hajjDetails5">
+                                <div class="hajj-detail-item"><i class="fas fa-plane"></i><span>طيران ذهاب وعودة - مواعيد مناسبة لرمضان</span></div>
+                                <div class="hajj-detail-item"><i class="fas fa-hotel"></i><span>إقامة 14 ليلة فندق 5 نجوم (أول 10 أيام رمضان)</span></div>
+                                <div class="hajj-detail-item"><i class="fas fa-utensils"></i><span>سحور وإفطار يومي + وجبة خفيفة</span></div>
+                                <div class="hajj-detail-item"><i class="fas fa-mosque"></i><span>صلاة التراويح في الحرم الشريف يومياً</span></div>
+                                <!-- <div class="hajj-detail-item"><i class="fas fa-user-tie"></i><span>محاضرات دينية ودروس فقهية يومية</span></div> -->
+                                <div class="hajj-detail-item"><i class="fas fa-bus"></i><span>نقل يومي من وإلى الحرم</span></div>
+                            </div>
+                            <div class="hajj-card-footer">
+                                <button class="hajj-toggle-btn" onclick="toggleHajjDetails(5)"><span>التفاصيل</span><i class="fas fa-chevron-down"></i></button>
+                            </div>
+                        </div>
+                        <div class="hajj-card reveal">
+                            <div class="hajj-card-image">
+                                <img src="img/download.jpg" alt="Short Umrah">
+                                <div class="hajj-card-badge">قصيرة</div>
+                            </div>
+                            <div class="hajj-card-content">
+                                <h3>باقة العمرة السريعة</h3>
+                                <p>عمرة سريعة 5 أيام للمغتربين وأصحاب الأعمال، تشمل الطيران والإقامة والتنقل بأقل تكلفة ممكنة.</p>
+                            </div>
+                            <div class="hajj-details" id="hajjDetails6">
+                                <div class="hajj-detail-item"><i class="fas fa-plane"></i><span>طيران ذهاب وعودة - رحلات مباشرة</span></div>
+                                <div class="hajj-detail-item"><i class="fas fa-hotel"></i><span>إقامة 5 ليالي فندق 3 نجوم قريب من الحرم</span></div>
+                                <!-- <div class="hajj-detail-item"><i class="fas fa-utensils"></i><span>وجبة إفطار يومية</span></div> -->
+                                <div class="hajj-detail-item"><i class="fas fa-bus"></i><span>نقل من وإلى المطار</span></div>
+                                <!-- <div class="hajj-detail-item"><i class="fas fa-user-tie"></i><span>مرشد ديني لأداء العمرة</span></div> -->
+                            </div>
+                            <div class="hajj-card-footer">
+                                <button class="hajj-toggle-btn" onclick="toggleHajjDetails(6)"><span>التفاصيل</span><i class="fas fa-chevron-down"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- GALLERY PAGE -->
+    <div class="page" id="page-gallery">
+        <div class="page-content">
+            <section class="section gallery-section">
+                <div class="container">
+                    <div class="section-header reveal">
+                        <div class="section-subtitle"><span></span>معرض الصور<span></span></div>
+                        <h2 class="section-title">لحظات <span class="gold-text">لا تُنسى</span></h2>
+                        <p class="section-description">مجموعة من أجمل اللحظات التي عاشها عملاؤنا خلال رحلاتهم مع روميكسا تورز</p>
+                    </div>
+                    <div class="gallery-slider-wrapper reveal">
+                        <div class="gallery-track" id="galleryTrack">
+                            <div class="gallery-slide" data-real-idx="0" onclick="openLightbox(0)"><img src="./img/photo_10_2026-04-28_23-52-20.jpg" alt="Gallery Image" loading="lazy"><div class="gallery-slide-overlay"><i class="fas fa-expand"></i></div></div>
+                            <div class="gallery-slide" data-real-idx="1" onclick="openLightbox(1)"><img src="./img/photo_11_2026-04-28_23-52-20.jpg" alt="Gallery Image" loading="lazy"><div class="gallery-slide-overlay"><i class="fas fa-expand"></i></div></div>
+                            <div class="gallery-slide" data-real-idx="2" onclick="openLightbox(2)"><img src="./img/photo_12_2026-04-28_23-52-20.jpg" alt="Gallery Image" loading="lazy"><div class="gallery-slide-overlay"><i class="fas fa-expand"></i></div></div>
+                            <div class="gallery-slide" data-real-idx="3" onclick="openLightbox(3)"><img src="./img/photo_14_2026-04-28_23-52-20.jpg" alt="Gallery Image" loading="lazy"><div class="gallery-slide-overlay"><i class="fas fa-expand"></i></div></div>
+                            <div class="gallery-slide" data-real-idx="4" onclick="openLightbox(4)"><img src="./img/photo_15_2026-04-28_23-52-20.jpg" alt="Gallery Image" loading="lazy"><div class="gallery-slide-overlay"><i class="fas fa-expand"></i></div></div>
+                            <div class="gallery-slide" data-real-idx="5" onclick="openLightbox(5)"><img src="./img/photo_16_2026-04-28_23-52-20.jpg" alt="Gallery Image" loading="lazy"><div class="gallery-slide-overlay"><i class="fas fa-expand"></i></div></div>
+                            <div class="gallery-slide" data-real-idx="6" onclick="openLightbox(6)"><img src="./img/photo_17_2026-04-28_23-52-20.jpg" alt="Gallery Image" loading="lazy"><div class="gallery-slide-overlay"><i class="fas fa-expand"></i></div></div>
+                            <div class="gallery-slide" data-real-idx="7" onclick="openLightbox(7)"><img src="./img/photo_18_2026-04-28_23-52-20.jpg" alt="Gallery Image" loading="lazy"><div class="gallery-slide-overlay"><i class="fas fa-expand"></i></div></div>
+                            <div class="gallery-slide" data-real-idx="8" onclick="openLightbox(8)"><img src="./img/photo_19_2026-04-28_23-52-20.jpg" alt="Gallery Image" loading="lazy"><div class="gallery-slide-overlay"><i class="fas fa-expand"></i></div></div>
+                            <div class="gallery-slide" data-real-idx="9" onclick="openLightbox(9)"><img src="./img/photo_20_2026-04-28_23-52-20.jpg" alt="Gallery Image" loading="lazy"><div class="gallery-slide-overlay"><i class="fas fa-expand"></i></div></div>
+                            <div class="gallery-slide" data-real-idx="10" onclick="openLightbox(10)"><img src="./img/photo_21_2026-04-28_23-52-20.jpg" alt="Gallery Image" loading="lazy"><div class="gallery-slide-overlay"><i class="fas fa-expand"></i></div></div>
+                            <div class="gallery-slide" data-real-idx="11" onclick="openLightbox(11)"><img src="./img/photo_22_2026-04-28_23-52-20.jpg" alt="Gallery Image" loading="lazy"><div class="gallery-slide-overlay"><i class="fas fa-expand"></i></div></div>
+                            <div class="gallery-slide" data-real-idx="12" onclick="openLightbox(12)"><img src="./img/photo_23_2026-04-28_23-52-20.jpg" alt="Gallery Image" loading="lazy"><div class="gallery-slide-overlay"><i class="fas fa-expand"></i></div></div>
+                            <div class="gallery-slide" data-real-idx="13" onclick="openLightbox(13)"><img src="./img/photo_24_2026-04-28_23-52-20.jpg" alt="Gallery Image" loading="lazy"><div class="gallery-slide-overlay"><i class="fas fa-expand"></i></div></div>
+                            <div class="gallery-slide" data-real-idx="14" onclick="openLightbox(14)"><img src="./img/photo_25_2026-04-28_23-52-20.jpg" alt="Gallery Image" loading="lazy"><div class="gallery-slide-overlay"><i class="fas fa-expand"></i></div></div>
+                            <div class="gallery-slide" data-real-idx="15" onclick="openLightbox(15)"><img src="./img/photo_26_2026-04-28_23-52-20.jpg" alt="Gallery Image" loading="lazy"><div class="gallery-slide-overlay"><i class="fas fa-expand"></i></div></div>
+                            <div class="gallery-slide" data-real-idx="16" onclick="openLightbox(16)"><img src="./img/photo_27_2026-04-28_23-52-20.jpg" alt="Gallery Image" loading="lazy"><div class="gallery-slide-overlay"><i class="fas fa-expand"></i></div></div>
+                            <div class="gallery-slide" data-real-idx="17" onclick="openLightbox(17)"><img src="./img/photo_28_2026-04-28_23-52-20.jpg" alt="Gallery Image" loading="lazy"><div class="gallery-slide-overlay"><i class="fas fa-expand"></i></div></div>
+                            <div class="gallery-slide" data-real-idx="18" onclick="openLightbox(18)"><img src="./img/photo_29_2026-04-28_23-52-20.jpg" alt="Gallery Image" loading="lazy"><div class="gallery-slide-overlay"><i class="fas fa-expand"></i></div></div>
+                            <div class="gallery-slide" data-real-idx="19" onclick="openLightbox(19)"><img src="./img/photo_30_2026-04-28_23-52-20.jpg" alt="Gallery Image" loading="lazy"><div class="gallery-slide-overlay"><i class="fas fa-expand"></i></div></div>
+                            <!-- Duplicate set for seamless infinite scroll -->
+                            <div class="gallery-slide" data-real-idx="0" onclick="openLightbox(0)"><img src="https://picsum.photos/seed/travel1/600/400" alt="Gallery Image" loading="lazy"><div class="gallery-slide-overlay"><i class="fas fa-expand"></i></div></div>
+                            <div class="gallery-slide" data-real-idx="1" onclick="openLightbox(1)"><img src="https://picsum.photos/seed/travel2/600/400" alt="Gallery Image" loading="lazy"><div class="gallery-slide-overlay"><i class="fas fa-expand"></i></div></div>
+                            <div class="gallery-slide" data-real-idx="2" onclick="openLightbox(2)"><img src="https://picsum.photos/seed/travel3/600/400" alt="Gallery Image" loading="lazy"><div class="gallery-slide-overlay"><i class="fas fa-expand"></i></div></div>
+                            <div class="gallery-slide" data-real-idx="3" onclick="openLightbox(3)"><img src="https://picsum.photos/seed/travel4/600/400" alt="Gallery Image" loading="lazy"><div class="gallery-slide-overlay"><i class="fas fa-expand"></i></div></div>
+                            <div class="gallery-slide" data-real-idx="4" onclick="openLightbox(4)"><img src="https://picsum.photos/seed/travel5/600/400" alt="Gallery Image" loading="lazy"><div class="gallery-slide-overlay"><i class="fas fa-expand"></i></div></div>
+                            <div class="gallery-slide" data-real-idx="5" onclick="openLightbox(5)"><img src="https://picsum.photos/seed/travel6/600/400" alt="Gallery Image" loading="lazy"><div class="gallery-slide-overlay"><i class="fas fa-expand"></i></div></div>
+                            <div class="gallery-slide" data-real-idx="6" onclick="openLightbox(6)"><img src="https://picsum.photos/seed/travel7/600/400" alt="Gallery Image" loading="lazy"><div class="gallery-slide-overlay"><i class="fas fa-expand"></i></div></div>
+                            <div class="gallery-slide" data-real-idx="7" onclick="openLightbox(7)"><img src="https://picsum.photos/seed/travel8/600/400" alt="Gallery Image" loading="lazy"><div class="gallery-slide-overlay"><i class="fas fa-expand"></i></div></div>
+                            <div class="gallery-slide" data-real-idx="8" onclick="openLightbox(8)"><img src="https://picsum.photos/seed/travel9/600/400" alt="Gallery Image" loading="lazy"><div class="gallery-slide-overlay"><i class="fas fa-expand"></i></div></div>
+                            <div class="gallery-slide" data-real-idx="9" onclick="openLightbox(9)"><img src="https://picsum.photos/seed/travel10/600/400" alt="Gallery Image" loading="lazy"><div class="gallery-slide-overlay"><i class="fas fa-expand"></i></div></div>
+                            <div class="gallery-slide" data-real-idx="10" onclick="openLightbox(10)"><img src="https://picsum.photos/seed/travel11/600/400" alt="Gallery Image" loading="lazy"><div class="gallery-slide-overlay"><i class="fas fa-expand"></i></div></div>
+                            <div class="gallery-slide" data-real-idx="11" onclick="openLightbox(11)"><img src="https://picsum.photos/seed/travel12/600/400" alt="Gallery Image" loading="lazy"><div class="gallery-slide-overlay"><i class="fas fa-expand"></i></div></div>
+                            <div class="gallery-slide" data-real-idx="12" onclick="openLightbox(12)"><img src="https://picsum.photos/seed/travel13/600/400" alt="Gallery Image" loading="lazy"><div class="gallery-slide-overlay"><i class="fas fa-expand"></i></div></div>
+                            <div class="gallery-slide" data-real-idx="13" onclick="openLightbox(13)"><img src="https://picsum.photos/seed/travel14/600/400" alt="Gallery Image" loading="lazy"><div class="gallery-slide-overlay"><i class="fas fa-expand"></i></div></div>
+                            <div class="gallery-slide" data-real-idx="14" onclick="openLightbox(14)"><img src="https://picsum.photos/seed/travel15/600/400" alt="Gallery Image" loading="lazy"><div class="gallery-slide-overlay"><i class="fas fa-expand"></i></div></div>
+                            <div class="gallery-slide" data-real-idx="15" onclick="openLightbox(15)"><img src="https://picsum.photos/seed/travel16/600/400" alt="Gallery Image" loading="lazy"><div class="gallery-slide-overlay"><i class="fas fa-expand"></i></div></div>
+                            <div class="gallery-slide" data-real-idx="16" onclick="openLightbox(16)"><img src="https://picsum.photos/seed/travel17/600/400" alt="Gallery Image" loading="lazy"><div class="gallery-slide-overlay"><i class="fas fa-expand"></i></div></div>
+                            <div class="gallery-slide" data-real-idx="17" onclick="openLightbox(17)"><img src="https://picsum.photos/seed/travel18/600/400" alt="Gallery Image" loading="lazy"><div class="gallery-slide-overlay"><i class="fas fa-expand"></i></div></div>
+                            <div class="gallery-slide" data-real-idx="18" onclick="openLightbox(18)"><img src="https://picsum.photos/seed/travel19/600/400" alt="Gallery Image" loading="lazy"><div class="gallery-slide-overlay"><i class="fas fa-expand"></i></div></div>
+                            <div class="gallery-slide" data-real-idx="19" onclick="openLightbox(19)"><img src="https://picsum.photos/seed/travel20/600/400" alt="Gallery Image" loading="lazy"><div class="gallery-slide-overlay"><i class="fas fa-expand"></i></div></div>
+                        </div>
+                    </div>
+                    <button class="show-all-btn" onclick="openAllPhotos()"><i class="fas fa-images"></i> عرض كل الصور</button>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- PRIVACY POLICY PAGE -->
+    <div class="page" id="page-privacy">
+        <div class="page-content">
+            <div class="legal-page">
+                <h1>سياسة <span class="gold-text">الخصوصية</span></h1>
+                <p class="legal-updated">آخر تحديث: يناير 2025</p>
+                <div class="highlight-box"><p>نحن في روميكسا تورز  نولي أهمية قصوى لحماية خصوصية عملائنا وبياناتهم الشخصية.</p></div>
+                <h2>1. المعلومات التي نجمعها</h2>
+                <p>نقوم بجمع المعلومات التالية:</p>
+                <ul>
+                    <li><strong>المعلومات الشخصية:</strong> الاسم الكامل، رقم الهاتف، البريد الإلكتروني، العنوان، رقم جواز السفر، الجنسية، وتاريخ الميلاد.</li>
+                    <li><strong>معلومات الحجز:</strong> تفاصيل رحلاتك، تفضيلات الفنادق، متطلبات خاصة، وتواريخ السفر.</li>
+                    <li><strong>معلومات الدفع:</strong> بيانات بطاقة الائتمان أو الحساب البنكي (يتم معالجتها بشكل آمن ومشفر).</li>
+                    <!-- <li><strong>معلومات الاستخدام:</strong> صفحات الزيارة، مدة الجلسة، نوع المتصفح، وعنوان IP.</li> -->
+                </ul>
+                <h2>2. كيفية استخدام معلوماتك</h2>
+                <p>نستخدم المعلومات المجمعة للأغراض التالية:</p>
+                <ul>
+                    <li>معالجة حجوزاتك وتأكيدات السفر</li>
+                    <li>التواصل معك بخصوص رحلتك وتحديثاتها</li>
+                    <li>تحسين خدماتنا وتجربة المستخدم على موقعنا</li>
+                    <li>إرسال عروض وباقات سياحية (بموافقتك)</li>
+                    <li>الامتثال للالتزامات القانونية والتنظيمية</li>
+                    <li>منع الاحتيال وحماية أمن حسابك</li>
+                </ul>
+                <h2>3. مشاركة المعلومات مع أطراف ثالثة</h2>
+                <p>نلتزم بعدم بيع أو تأجير معلوماتك الشخصية لأطراف ثالثة. قد نشارك معلوماتك في الحالات التالية فقط:</p>
+                <ul>
+                    <li><strong>مزودي الخدمات:</strong> شركات الطيران، الفنادق، وشركات النقل لإتمام حجزك</li>
+                    <li><strong>الامتثال القانوني:</strong> عند الطلب من الجهات الحكومية أو القضائية المختصة</li>
+                    <li><strong>حماية الحقوق:</strong> لحماية حقوقنا القانونية أو سلامة عملائنا</li>
+                </ul>
+                <h2>4. حماية البيانات</h2>
+                <p>نتخذ إجراءات أمنية صارمة لحماية معلوماتك الشخصية تشمل:</p>
+                <ul>
+                    <li>تشفير البيانات أثناء النقل باستخدام بروتوكول SSL/TLS</li>
+                    <li>تخزين البيانات على خوادم آمنة محمية بجدران نارية</li>
+                    <li>تدريب موظفينا على معايير حماية البيانات</li>
+                    <li>مراجعة دورية لأنظمتنا الأمنية</li>
+                </ul>
+                <h2>5. ملفات تعريف الارتباط (Cookies)</h2>
+                <p>نستخدم ملفات تعريف الارتباط لتحسين تجربة التصفح وتحليل استخدام الموقع. يمكنك التحكم في إعدادات الكوكيز من خلال متصفحك.</p>
+                <h2>6. حقوقك</h2>
+                <p>يحق لك:</p>
+                <ul>
+                    <li>الوصول إلى بياناتك الشخصية والاطلاع عليها</li>
+                    <li>طلب تصحيح أو تحديث معلوماتك</li>
+                    <li>طلب حذف بياناتك (مع مراعاة الالتزامات القانونية)</li>
+                    <li>الاعتراض على معالجة بياناتك لأغراض تسويقية</li>
+                    <li>سحب موافقتك في أي وقت</li>
+                </ul>
+                <h2>7. الاحتفاظ بالبيانات</h2>
+                <p>نحتفظ ببياناتك الشخصية لمدة 5 سنوات من تاريخ آخر تفاعل معنا، أو لمدة أطول إذا كان ذلك مطلوباً بموجب القانون.</p>
+                <h2>8. التعديلات على سياسة الخصوصية</h2>
+                <p>نحتفظ بالحق في تعديل هذه السياسة في أي وقت. سيتم إخطارك بأي تغييرات جوهرية عبر البريد الإلكتروني أو إشعار على موقعنا.</p>
+                <h2>9. التواصل معنا</h2>
+                <p>إذا كان لديك أي استفسارات حول سياسة الخصوصية، يمكنك التواصل معنا:</p>
+                <ul>
+                    <li><strong>البريد الإلكتروني:</strong> privacy@romixa.com</li>
+                    <li><strong>الهاتف:</strong> +20 1080954722</li>
+                    <li><strong>العنوان:</strong> دمياط الجديدة - شارع المرور</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- TERMS & CONDITIONS PAGE -->
+    <div class="page" id="page-terms">
+        <div class="page-content">
+            <div class="legal-page">
+                <h1>الشروط <span class="gold-text">والأحكام</span></h1>
+                <p class="legal-updated">آخر تحديث: يناير 2025</p>
+                <div class="highlight-box"><p>باستخدامك لموقع روميكسا تورز وخدماتنا، فإنك توافق على الالتزام بهذه الشروط والأحكام.</p></div>
+                <h2>1. التعريفات</h2>
+                <ul>
+                    <li><strong>"الشركة":</strong> روميكسا تورز  المسجلة في جمهورية مصر العربية</li>
+                    <li><strong>"العميل":</strong> أي شخص يستخدم موقعنا أو خدماتنا</li>
+                    <li><strong>"الخدمات":</strong> جميع الخدمات السياحية المقدمة عبر موقعنا</li>
+                    <li><strong>"الحجز":</strong> أي حجز يتم عبر موقعنا أو مكتبنا</li>
+                </ul>
+                <h2>2. شروط الحجز</h2>
+                <ul>
+                    <li>يجب أن يكون عمر العميل 18 عاماً على الأقل لإتمام الحجز</li>
+                    <li>جميع الحجوزات تخضع للتوفر وتأكيد الشركة</li>
+                    <li>يجب تقديم بيانات صحيحة وكاملة عند الحجز</li>
+                    <li>تتحمل الشركة مسؤولية التأكد من صحة وثائق السفر (جواز سفر، تأشيرات)</li>
+                </ul>
+                <h2>3. الأسعار والدفع</h2>
+                <ul>
+                    <li>جميع الأسعار بالعملة المذكورة وقد تتغير دون إشعار مسبق</li>
+                    <li>الأسعار لا تشمل الضرائب والرسوم الحكومية إلا إذا ذُكر خلاف ذلك</li>
+                    <li>يجب سداد المبلغ الكامل قبل موعد الرحلة بـ 14 يوماً على الأقل</li>
+                    <li>نقبل الدفع عبر بطاقات الائتمان، التحويل البنكي، والدفع النقدي في مكتبنا</li>
+                </ul>
+                <h2>4. مسؤوليات العميل</h2>
+                <ul>
+                    <li>التأكد من صحة وثائق السفر وصلاحيتها</li>
+                    <li>الالتزام بقوانين ولوائح الدول المقصودة</li>
+                    <li>الحضور في مواعيد الطيران المحددة</li>
+                    <li>إبلاغ الشركة بأي ظروف صحية خاصة</li>
+                </ul>
+                <h2>5. مسؤوليات الشركة</h2>
+                <ul>
+                    <li>تقديم الخدمات المتفق عليها بجودة عالية</li>
+                    <!-- <li>توفير مرشدين سياحيين محترفين ومعتمدين</li> -->
+                    <!-- <li>ضمان سلامة العملاء أثناء الرحلات المنظمة</li> -->
+                    <li>التعامل مع الشكاوى والاقتراحات بجدية وسرعة</li>
+                </ul>
+                <h2>6. الملكية الفكرية</h2>
+                <p>جميع المحتويات على موقعنا (نصوص، صور، شعارات، تصاميم) محمية بحقوق الملكية الفكرية التابعة لروميكسا تورز.</p>
+                <h2>7. حدود المسؤولية</h2>
+                <p>لا تتحمل الشركة مسؤولية:</p>
+                <ul>
+                    <li>تأخير أو إلغاء الرحلات بسبب ظروف خارجة عن إرادتنا</li>
+                    <li>فقدان أو تلف الممتلكات الشخصية للعميل</li>
+                    <li>إصابات أو حوادث تحدث خارج نطاق الرحلات المنظمة</li>
+                </ul>
+                <h2>8. القانون الواجب التطبيق</h2>
+                <p>تخضع هذه الشروط والأحكام لقوانين جمهورية مصر العربية، وتختص المحاكم المصرية بالفصل في أي نزاعات.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CANCELLATION POLICY PAGE -->
+    <div class="page" id="page-cancellation">
+        <div class="page-content">
+            <div class="legal-page">
+                <h1>سياسة <span class="gold-text">الإلغاء</span></h1>
+                <p class="legal-updated">آخر تحديث: يناير 2025</p>
+                <div class="highlight-box"><p>نلتزم في روميكسا تورز بتوفير سياسة إلغاء عادلة وشفافة. نرجو قراءة هذه السياسة بعناية قبل إتمام أي حجز.</p></div>
+                <h2>1. إلغاء الحجز قبل موعد الرحلة</h2>
+                <table style="width:100%;border-collapse:collapse;margin:20px 0;">
+                    <thead><tr style="background:rgba(201,168,76,0.15);"><th style="padding:15px;border:1px solid rgba(201,168,76,0.2);text-align:right;color:var(--gold-light);">الفترة قبل موعد الرحلة</th><th style="padding:15px;border:1px solid rgba(201,168,76,0.2);text-align:right;color:var(--gold-light);">نسبة الاسترداد</th></tr></thead>
+                    <tbody>
+                        <tr><td style="padding:12px;border:1px solid rgba(255,255,255,0.05);color:var(--text-muted);">30 يوماً أو أكثر</td><td style="padding:12px;border:1px solid rgba(255,255,255,0.05);color:var(--text-light);font-weight:700;">استرداد كامل (100%)</td></tr>
+                        <tr style="background:rgba(255,255,255,0.02);"><td style="padding:12px;border:1px solid rgba(255,255,255,0.05);color:var(--text-muted);">من 15 إلى 29 يوماً</td><td style="padding:12px;border:1px solid rgba(255,255,255,0.05);color:var(--text-light);font-weight:700;">استرداد 75%</td></tr>
+                        <tr><td style="padding:12px;border:1px solid rgba(255,255,255,0.05);color:var(--text-muted);">من 7 إلى 14 يوماً</td><td style="padding:12px;border:1px solid rgba(255,255,255,0.05);color:var(--text-light);font-weight:700;">استرداد 50%</td></tr>
+                        <tr style="background:rgba(255,255,255,0.02);"><td style="padding:12px;border:1px solid rgba(255,255,255,0.05);color:var(--text-muted);">أقل من 7 أيام</td><td style="padding:12px;border:1px solid rgba(255,255,255,0.05);color:var(--text-light);font-weight:700;">لا يوجد استرداد</td></tr>
+                    </tbody>
+                </table>
+                <h2>2. إلغاء الحجز بعد موعد الرحلة</h2>
+                <p>في حالة إلغاء الحجز بعد تاريخ بدء الرحلة:</p>
+                <ul><li>لا يحق للعميل استرداد أي مبلغ</li><li>تتحمل الشركة توفير بديل إذا كان السبب من جانبنا</li></ul>
+                <h2>3. حالات الاستثناء</h2>
+                <p>في الحالات التالية، يحق للعميل استرداد كامل المبلغ:</p>
+                <ul>
+                    <li>إلغاء الرحلة من قبل الشركة لأسباب فنية أو تنظيمية</li>
+                    <li>حالات القوة القاهرة (كوارث طبيعية، أوبئة، حروب)</li>
+                    <li>وفاة أو مرض خطير للعميل أو أحد أفراد عائلته المباشرين</li>
+                    <li>رفض التأشيرة من السفارة (بتقديم رفض رسمي)</li>
+                </ul>
+                <h2>4. تعديل الحجز</h2>
+                <p>بدلاً من الإلغاء، يمكنك طلب تعديل الحجز:</p>
+                <ul>
+                    <li>تعديل التواريخ: مسموح مرة واحدة مجاناً قبل 15 يوماً من موعد الرحلة</li>
+                    <li>تعديل الوجهة: يخضع للتوفر وفرق السعر إن وجد</li>
+                    <li>نقل الحجز لشخص آخر: مسموح بخصم إداري 5% من قيمة الحجز</li>
+                </ul>
+                <h2>5. إجراءات الإلغاء</h2>
+                <p>لإلغاء حجزك، يرجى:</p>
+                <ol>
+                    <li>التواصل معنا عبر البريد الإلكتروني: cancellation@romixa.com</li>
+                    <li>تقديم رقم الحجز واسم العميل</li>
+                    <li>سيتم تأكيد الإلغاء خلال 48 ساعة</li>
+                    <li>يتم استرداد المبلغ خلال 14-21 يوماً عمل إلى نفس طريقة الدفع</li>
+                </ol>
+                <h2>6. تأمين إلغاء الرحلة</h2>
+                <p>ننصح بشدة بشراء تأمين إلغاء الرحلة المتاح لدينا والذي يغطي:</p>
+                <ul>
+                    <li>استرداد 90% من قيمة الحجز في حالة الإلغاء لأي سبب</li>
+                    <li>تغطية تكاليف طبية طارئة أثناء الرحلة</li>
+                    <li>تكلفة إعادة booking في حالة تأخير الرحلة</li>
+                </ul>
+                <h2>7. التواصل</h2>
+                <p>لأي استفسارات حول سياسة الإلغاء:</p>
+                <ul>
+                    <li><strong>البريد الإلكتروني:</strong> cancellation@romixa.com</li>
+                    <li><strong>الهاتف:</strong> +20 1080954722</li>
+                    <li><strong>واتساب:</strong> +20 1080954722</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                    <img src="img/ChatGPT_Image_removebg-preview.png"  alt="ROMIXA" style="height: 70px; vertical-align: middle;">
+                         <span class="footer-logo-text"></span>
+                    </div>
+                    <p>روميكسا تورز  - وجهتك المثالية لاستكشاف أجمل الوجهات  .</p>
+                    <div class="footer-social">
+    <a href="https://www.facebook.com/share/14c8RnxYRoW/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://wa.me/201080954722" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+    <a href="mailto:romixa.tours@gmail.com" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
+</div>
+                </div>
+                <div class="footer-column">
+                    <h3>روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a onclick="navigateTo('home')"><i class="fas fa-chevron-left"></i> الرئيسية</a></li>
+                        <li><a onclick="navigateTo('about')"><i class="fas fa-chevron-left"></i> من نحن</a></li>
+                        <li><a onclick="navigateTo('hajj')"><i class="fas fa-chevron-left"></i> الحج والعمرة</a></li>
+                        <li><a onclick="navigateTo('destinations')"><i class="fas fa-chevron-left"></i> وجهاتنا</a></li>
+                        <li><a onclick="navigateTo('packages')"><i class="fas fa-chevron-left"></i> العروض</a></li>
+                        <li><a onclick="navigateTo('gallery')"><i class="fas fa-chevron-left"></i> معرض الصور</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>وجهاتنا الشائعة</h3>
+                    <ul class="footer-links">
+                        <li><a onclick="navigateTo('destinations')"><i class="fas fa-chevron-left"></i> باريس - فرنسا</a></li>
+                        <li><a onclick="navigateTo('destinations')"><i class="fas fa-chevron-left"></i> إسطنبول - تركيا</a></li>
+                        <li><a onclick="navigateTo('destinations')"><i class="fas fa-chevron-left"></i> دبي - الإمارات</a></li>
+                        <li><a onclick="navigateTo('destinations')"><i class="fas fa-chevron-left"></i> سانتوريني - اليونان</a></li>
+                        <li><a onclick="navigateTo('destinations')"><i class="fas fa-chevron-left"></i> مالديف</a></li>
+                        <li><a onclick="navigateTo('destinations')"><i class="fas fa-chevron-left"></i> سويسرا</a></li>
+                        <li><a onclick="navigateTo('destinations')"><i class="fas fa-chevron-left"></i> مصر</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>تواصل معنا</h3>
+                    <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>دمياط الجديدة - شارع المرور</span></div>
+                    <div class="footer-contact-item"><i class="fas fa-phone-alt"></i><span dir="ltr">+20 01080954722</span></div>
+                    <div class="footer-contact-item"><i class="fas fa-mobile-alt"></i><span dir="ltr">+20 1080954722</span></div>
+                    <div class="footer-contact-item"><i class="fas fa-envelope"></i><span>romixa.tours@gmail.com</span></div>
+                    <div class="footer-contact-item"><i class="fas fa-clock"></i><span>السبت - الخميس: 9 ص - 9 م</span></div>
+                </div>
+            </div>
+           <div class="footer-bottom">
+    <p>© 2024 ROMIXA Tours for Tourism. جميع الحقوق محفوظة. | <span style="cursor:pointer; color: var(--gold-primary);" id="devCreditLink">تصميم وتطوير Adel Mohamed</span></p>
+    <div class="footer-bottom-links">
+        <a onclick="navigateTo('privacy')">سياسة الخصوصية</a>
+        <a onclick="navigateTo('terms')">الشروط والأحكام</a>
+        <a onclick="navigateTo('cancellation')">سياسة الإلغاء</a>
+    </div>
+</div>
+        </div>
+      <!-- ===== DEVELOPER MODAL  ===== -->
+<div class="dev-modal-overlay" id="devModal">
+    <div class="dev-modal">
+        <button class="dev-modal-close" id="closeDevModal"><i class="fas fa-times"></i></button>
+        <div class="dev-modal-content">
+            <div class="dev-avatar">
+                <img src="img/adel-mohamed.jpg" alt="المطور">
+            </div>
+            <h3 class="dev-name"> Adel Mohamed</h3>
+            <p class="dev-title"> Software Engineer | Front-End Developer</p>
+            <div class="dev-divider"></div>
+            <div class="dev-info">
+                <!-- بريد إلكتروني  -->
+                <a href="mailto:adelmohamedmahmoud.11@gmail.com" target="_blank" class="dev-info-item-link">
+                    <div class="dev-info-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>adelmohamedmahmoud.11@gmail.com</span>
+                    </div>
+                </a>
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/adel-mohamed-softwareengineer?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" class="dev-info-item-link">
+                    <div class="dev-info-item">
+                        <i class="fab fa-linkedin"></i>
+                        <span>linkedin | Adel Mohamed</span>
+                    </div>
+                </a>
+                <!-- GitHub -->
+                <!-- <a href="https://github.com/ahmed-dev" target="_blank" rel="noopener noreferrer" class="dev-info-item-link">
+                    <div class="dev-info-item">
+                        <i class="fab fa-github"></i>
+                        <span>github.com/ahmed-dev</span>
+                    </div>
+                </a> -->
+                <!-- WhatsApp  -->
+                <a href="https://wa.me/201005056744" target="_blank" rel="noopener noreferrer" class="dev-info-item-link">
+                    <div class="dev-info-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>+20 1005056744</span>
+                    </div>
+                </a>
+            </div>
+            <div class="dev-social">
+                <a href="https://www.linkedin.com/in/adel-mohamed-softwareengineer?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+                <!-- <a href="https://github.com/ahmed-dev" target="_blank" rel="noopener"><i class="fab fa-github"></i></a> -->
+                <a href="https://wa.me/201005056744" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:adelmohamedmahmoud.11@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p class="dev-footer-text">" نسعى دائمًا لتقديم تجارب رقمية مميزة "</p>
+        </div>
+    </div>
+</div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop"><i class="fas fa-chevron-up"></i></button>
+    <a href="https://wa.me/201080954722" target="_blank" rel="noopener noreferrer" class="whatsapp-float" title="تواصل معنا عبر واتساب"><i class="fab fa-whatsapp"></i></a>
+      
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TravelAgency",
+  "name": "روميكسا تورز",
+  "image": "https://www.romixa.com/img/logo.png",
+  "url": "https://www.romixa.com/",
+  "telephone": "+201080954722",
+  "email": "info@romixa.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "دمياط الجديدة",
+    "addressCountry": "EG"
+  },
+  "priceRange": "$$",
+  "openingHours": "Sa-Th 09:00-21:00",
+  "sameAs": [
+    "https://www.facebook.com/share/14c8RnxYRoW/",
+    "https://wa.me/201080954722"
+  ]
+}
+</script>
+    <script src="js/main.js"></script>
+
+
+</body>
+</html>
